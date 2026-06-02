@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Ingeniería de Software: Algoritmia</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Ingeniería de Software: Algoritmia y Lógica de Programación</h1>
+        <p>Un algoritmo es una secuencia estructurada, finita, determinista y matemáticamente no ambigua de instrucciones lógicas, diseñada con la finalidad de automatizar la resolución de un problema de procesamiento de datos.</p>
+        <p>La lógica estructural de los algoritmos se rige por las tres estructuras de control de flujo estipuladas por el teorema de Böhm-Jacopini: las estructuras <strong>Secuenciales</strong> (ejecución línea por línea de arriba hacia abajo), las estructuras <strong>Condicionales o Selectivas</strong> (toma de decisiones lógicas de bifurcación mediante sentencias `if-else`), y las estructuras <strong>Iterativas o Cíclicas</strong> (bucles como `for` y `while` que repiten bloques de código hasta satisfacer una condición matemática estricta).</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Ejecutor de Estructura Iterativa Algorítmica</h3>
+            <p>Simula un bucle condicional en memoria volátil de ejecución:</p>
+            <button onclick="ejecutarBucle()" style="background:#606c38; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Lanzar Bucle Iterativo (for i=1 to 5)</button>
+            <div id="boxBucle" style="margin-top: 15px; font-family: monospace; text-align: left; padding: 10px; background: white; border-radius: 4px; display: none;"></div>
+        </div>
+    </div>
+    <script>
+        function ejecutarBucle() {
+            let container = document.getElementById('boxBucle');
+            container.style.display = "block";
+            container.innerHTML = "";
+            for(let i=1; i<=5; i++) {
+                container.innerHTML += "Iteración estructural [" + i + "]: i vale " + i + ". Condición i&lt;=5 verídica. Continuando bucle...<br>";
+            }
+            container.innerHTML += "<strong>Bucle terminado. Condición rota. Flujo secuencial reanudado.</strong>";
+        }
+    </script>
+</body>
+</html>

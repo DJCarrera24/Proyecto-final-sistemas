@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Electrónica Digital: Compuertas Lógicas</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Electrónica Digital: Compuertas Lógicas</h1>
+        <p>Las compuertas lógicas constituyen los bloques de construcción elementales de cualquier circuito lógico digital en la CPU. Operan bajo los axiomas del <strong>Álgebra de Boole</strong>, aplicando funciones matemáticas sobre variables lógicas discretas con el fin de resolver operaciones aritméticas complejas a nivel de transistores.</p>
+        <p>Las compuertas primarias son la compuerta <strong>AND</strong> (multiplicación lógica, cuya salida es verdadera únicamente si todas sus entradas lo son), la compuerta <strong>OR</strong> (suma lógica, que requiere al menos una entrada verdadera), y la compuerta inversora <strong>NOT</strong>. A partir de estas, se derivan compuertas universales y combinacionales avanzadas como NAND, NOR, XOR y XNOR, claves para estructurar sumadores de bits y flip-flops de memoria.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Simulador de Compuerta Lógica AND</h3>
+            <label><input type="checkbox" id="chkA"> Entrada A (Bit 1)</label>
+            <label style="margin-left: 20px;"><input type="checkbox" id="chkB"> Entrada B (Bit 2)</label><br><br>
+            <button onclick="evaluarAnd()" style="background:#283618; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Evaluar Operación AND</button>
+            <p id="outAnd" style="margin-top: 15px; font-weight: bold; font-size: 1.2rem; color: #bc6c25;">Salida (Q) = 0</p>
+        </div>
+    </div>
+    <script>
+        function evaluarAnd() {
+            let a = document.getElementById('chkA').checked ? 1 : 0;
+            let b = document.getElementById('chkB').checked ? 1 : 0;
+            let q = a && b;
+            document.getElementById('outAnd').innerText = "Salida (Q) = " + q + " (Voltaje: " + (q ? "Alto 5V" : "Bajo 0V") + ")";
+        }
+    </script>
+</body>
+</html>

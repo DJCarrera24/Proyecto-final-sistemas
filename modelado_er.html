@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Ingeniería de Software: Modelado Entidad-Relación</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Ingeniería de Software: Modelo Entidad-Relación (E-R)</h1>
+        <p>El modelado Entidad-Relación (E-R) representa la etapa de modelado abstracto y semántico previo a la implementación física de un sistema de bases de datos relacionales. Permite estructurar la realidad operativa de un negocio mediante abstracciones lógicas estandarizadas.</p>
+        <p>Este modelo se cimenta en tres constructos teóricos primarios: las <strong>Entidades</strong> (objetos conceptuales del mundo real que guardan datos, representados gráficamente mediante rectángulos), los <strong>Atributos</strong> (propiedades intrínsecas de las entidades, representados por elipses), y las <strong>Relaciones</strong> (asociaciones que vinculan a las entidades entre sí, representadas por rombos). Además, define la <strong>Cardinalidad</strong>, estableciendo los límites cuantitativos de la interacción entre entidades (relaciones de uno a uno, uno a muchos, o muchos a muchos).</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Calculadora Estructural de Cardinalidad</h3>
+            <p>Determina la naturaleza lógica de la relación:</p>
+            <button onclick="verCard('1')" style="background:#bc6c25; color:white; border:none; padding:8px 15px; margin:5px; border-radius:4px; cursor:pointer;">Un Cliente hace Pedidos</button>
+            <button onclick="verCard('2')" style="background:#283618; color:white; border:none; padding:8px 15px; margin:5px; border-radius:4px; cursor:pointer;">Estudiantes se asignan a Cursos</button>
+            <p id="lblEr" style="margin-top: 15px; font-weight: bold; color: #283618;"></p>
+        </div>
+    </div>
+    <script>
+        function verCard(op) {
+            let desc = op === '1' ? "Relación 1:N (Uno a Muchos). Un único cliente puede registrar múltiples transacciones históricas de pedidos independientes." : "Relación N:M (Muchos a Muchos). Múltiples estudiantes toman múltiples asignaturas; requiere romper la relación con una tabla intermedia.";
+            document.getElementById('lblEr').innerText = desc;
+        }
+    </script>
+</body>
+</html>

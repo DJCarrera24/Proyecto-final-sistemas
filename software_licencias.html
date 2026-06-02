@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Marco Legal y Operativo: Software y Licencias</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Marco Legal y Operativo: Software y Licencias</h1>
+        <p>El software representa la dimensión lógica inmaterial que le indica al hardware físico los ciclos lógicos que debe ejecutar. Su distribución y explotación comercial están estrictamente reguladas por las <strong>Licencias de Software</strong>, contratos que estipulan los derechos, restricciones y libertades otorgados al usuario final.</p>
+        <p>Las licencias se clasifican técnicamente en cuatro grandes grupos: <strong>Propietario</strong> (código fuente cerrado y protegido por copyright), <strong>Shareware</strong> (distribución de prueba con limitaciones temporales o funcionales), <strong>Freeware</strong> (código gratuito pero cerrado), y el ecosistema de <strong>Software Libre y Código Abierto (Open Source)</strong>, regido por licencias como la GPL o MIT, las cuales garantizan el acceso al código fuente, su libre estudio, modificación y redistribución institucional.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px;">
+            <h3 style="text-align: center;">Asesor de Selección de Licencias</h3>
+            <p>Selecciona tu objetivo principal para recomendarte un modelo de licenciamiento de software:</p>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                <button onclick="asesorar('prop')" style="background:#bc6c25; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Monetizar código cerrado</button>
+                <button onclick="asesorar('libre')" style="background:#606c38; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Colaboración Comunitaria</button>
+            </div>
+            <p id="txtLic" style="text-align: center; margin-top: 15px; font-weight: bold; color: #283618;"></p>
+        </div>
+    </div>
+    <script>
+        function asesorar(tipo) {
+            let res = tipo === 'prop' ? "Modelo Recomendado: Software Propietario EULA Comercial. El código fuente permanece secreto para resguardar la ventaja competitiva corporativa." : "Modelo Recomendado: Licencia Abierta (GPL o MIT). Permite la auditoría pública de vulnerabilidades y el escalamiento ágil impulsado por la comunidad global.";
+            document.getElementById('txtLic').innerText = res;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Topologías de Red</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Telecomunicaciones: Topologías de Red</h1>
+        <p>Las topologías de red definen la disposición estructural, tanto en su capa física como en su enrutamiento lógico, en que se interconectan los nodos de un sistema de comunicaciones para intercambiar paquetes de datos.</p>
+        <p>Las redes corporativas tradicionales explotan arquitecturas en <strong>Estrella</strong> (donde cada nodo se vincula a un conmutador central, eliminando colisiones), estructuras en <strong>Anillo</strong> (transmisión unidireccional por tokens), topologías en <strong>Malla Completa</strong> (redundancia absoluta contra fallas físicas), y la topología clásica en <strong>Bus Lineal / Serpentina</strong>. En esta última, todos los dispositivos comparten un único canal conductor troncal; requiere terminadores en sus extremos lógicos para evitar el rebote e interferencia destructiva de las ondas electromagnéticas.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Simulador de Tolerancia a Fallas en Bus Lineal</h3>
+            <p>Simula el corte físico del cable troncal de transmisión en la topología de bus:</p>
+            <button onclick="cortarCable()" style="background:#bc6c25; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Cortar Línea de Transmisión Principal</button>
+            <p id="lblNet" style="margin-top: 15px; font-weight: bold; color: green;">Estado: Canal limpio. Transmitiendo tramas lógicas en el Bus.</p>
+        </div>
+    </div>
+    <script>
+        function cortarCable() {
+            document.getElementById('lblNet').innerText = "Vulnerabilidad Detectada: El bus se ha segmentado. Se perdió la terminación de la red y el rebote de señal ha dejado incomunicados a todos los nodos lógicos remotos.";
+            document.getElementById('lblNet').style.color = "red";
+        }
+    </script>
+</body>
+</html>

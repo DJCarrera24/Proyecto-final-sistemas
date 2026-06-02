@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Persistencia de Datos: Almacenamiento</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Persistencia de Datos: Dispositivos de Almacenamiento</h1>
+        <p>A diferencia de la memoria volátil RAM, los dispositivos de almacenamiento secundario tienen el rol crítico de mantener la persistencia lógica de la información matemática del sistema, incluso cuando el equipo carece por completo de alimentación eléctrica.</p>
+        <p>La evolución tecnológica nos sitúa ante dos grandes vertientes arquitectónicas: los discos duros mecánicos (<strong>HDD</strong>), basados en platos magnéticos giratorios y cabezales inductivos con altas capacidades de almacenamiento pero velocidades de lectura limitadas por la fricción mecánica; y las unidades de estado sólido (<strong>SSD</strong>), compuestas por matrices de compuertas lógicas flotantes <strong>NAND Flash</strong>, las cuales carecen de partes móviles y se comunican a través del protocolo NVMe bajo la interfaz PCI Express, alcanzando anchos de banda masivos.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Comparador de Velocidad de Transferencia</h3>
+            <p>Selecciona un medio para ver el tiempo estimado en transferir un archivo binario de 50 GB:</p>
+            <button onclick="calcTiempo('HDD')" style="background:#283618; color:white; border:none; padding:8px 15px; margin:5px; border-radius:4px; cursor:pointer;">Disco Mecánico (HDD)</button>
+            <button onclick="calcTiempo('SSD')" style="background:#bc6c25; color:white; border:none; padding:8px 15px; margin:5px; border-radius:4px; cursor:pointer;">Estado Sólido (SSD NVMe)</button>
+            <p id="txtDisk" style="margin-top: 15px; font-weight: bold; color: #283618;"></p>
+        </div>
+    </div>
+    <script>
+        function calcTiempo(tipo) {
+            let msg = tipo === 'HDD' ? "HDD (100 MB/s): Tardará aproximadamente 8 minutos y 20 segundos debido al posicionamiento del cabezal físico." : "SSD NVMe (5000 MB/s): Tardará únicamente 10 segundos gracias al paralelismo de sus celdas lógicas NAND Flash.";
+            document.getElementById('txtDisk').innerText = msg;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Componentes Críticos: Tarjeta Madre</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Componentes Críticos: La Tarjeta Madre</h1>
+        <p>La placa base o tarjeta madre es la plataforma central sobre la cual se construye todo el ecosistema de hardware de una computadora. Su función principal es interconectar de forma física y eléctrica todos los módulos del sistema mediante buses conductores impresos en su estructura de capas de fibra de vidrio.</p>
+        <p>Dentro de sus componentes esenciales encontramos el <strong>Socket</strong> (zócalo del procesador), el <strong>Chipset</strong> (compuesto históricamente por el puente norte para altas velocidades y el puente sur para periféricos), las ranuras <strong>DIMM</strong> para memoria RAM, los slots de expansión <strong>PCI Express</strong> de alta velocidad, y los conectores de almacenamiento (SATA y M.2 NVMe). Asimismo, aloja el chip de la <strong>BIOS/UEFI</strong> y la batería que mantiene energizado el reloj de tiempo real (RTC) y la memoria CMOS.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px;">
+            <h3 style="text-align: center;">Esquema Interactivo de Conexión</h3>
+            <p style="text-align: center;">Haz clic en un componente para simular su conexión al bus central:</p>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                <button onclick="conectar('Procesador (CPU)')" style="background:#283618; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Conectar CPU</button>
+                <button onclick="conectar('Módulo RAM DIMM')" style="background:#283618; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Conectar RAM</button>
+                <button onclick="conectar('Unidad de Estado Sólido M.2')" style="background:#283618; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Conectar SSD</button>
+            </div>
+            <p id="lblPlaca" style="text-align: center; margin-top: 15px; font-weight: bold; color: #bc6c25;">Estado: Esperando hardware...</p>
+        </div>
+    </div>
+    <script>
+        function conectar(comp) {
+            document.getElementById('lblPlaca').innerText = "Estado: " + comp + " conectado exitosamente a través de las líneas del bus de la placa.";
+        }
+    </script>
+</body>
+</html>

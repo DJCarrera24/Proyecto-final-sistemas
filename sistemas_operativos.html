@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Control del Sistema: El Kernel y SO</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Control Principal del Sistema: El Kernel y los SO</h1>
+        <p>El Sistema Operativo (SO) es el software base encargado de administrar el hardware del ordenador. El núcleo o <strong>Kernel</strong> representa el componente más crítico del SO, ejecutándose en el nivel de máxima prioridad del hardware (Anillo 0 o Modo Privilegiado), interactuando de forma directa con los registros del procesador y la memoria física.</p>
+        <p>El Kernel gestiona de forma centralizada la asignación de memoria a los programas (paginación y segmentación), la planificación e hilos de ejecución en los núcleos de la CPU (Scheduling), y el control de los sistemas de archivos. El software de aplicación de usuario jamás manipula el hardware directamente; se comunica obligatoriamente con el Kernel mediante llamadas al sistema controladas llamadas <strong>System Calls</strong>.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px; text-align: center;">
+            <h3>Consola de Despacho de Procesos (Scheduler)</h3>
+            <p>Envía un hilo de ejecución de usuario hacia el planificador del Kernel:</p>
+            <button onclick="lanzarProceso()" style="background:#283618; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Ejecutar System Call (Sys_Fork)</button>
+            <p id="lblKernel" style="margin-top: 15px; font-weight: bold; color: #bc6c25;">Estado: Kernel IDLE (Esperando interrupciones de software)</p>
+        </div>
+    </div>
+    <script>
+        function lanzarProceso() {
+            document.getElementById('lblKernel').innerText = "Interrupción de Software Recibida: System Call aceptada. El Kernel asignó una dirección de memoria virtual y despachó el proceso al núcleo 0 de la CPU.";
+        }
+    </script>
+</body>
+</html>

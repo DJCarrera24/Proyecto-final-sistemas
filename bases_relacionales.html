@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Almacenamiento Estructurado: Bases Relacionales</title>
+    <style>
+        :root { --bg: #fdfbf7; --dark: #283618; --accent: #dda15e; --card: #f5f2eb; }
+        body { background: var(--bg); color: #2b2a27; font-family: sans-serif; padding: 40px 20px; }
+        .box { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 6px solid #bc6c25; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">◀ Regresar al Bus</a>
+        <h1 style="color: #bc6c25; margin: 20px 0;">Almacenamiento Estructurado: Bases de Datos Relacionales</h1>
+        <p>Las bases de datos relacionales estructuran grandes volúmenes de datos fundamentándose conceptualmente en el <strong>Álgebra Relacional</strong>. En este modelo matemático, la información se organiza en tablas compuestas por registros (filas) y campos (columnas) de tipología estricta.</p>
+        <p>La integridad referencial de los datos se sostiene rígidamente mediante el uso de llaves o claves: la <strong>Llave Primaria (Primary Key)</strong> que identifica de forma unívoca a un registro dentro de su tabla, y la <strong>Llave Foránea (Foreign Key)</strong> que mapea un registro hacia otra tabla ajena, consolidando relaciones lógicas estructuradas. Los motores de bases de datos operan bajo el estándar de transacciones <strong>ACID</strong> (Atomicidad, Consistencia, Aislamiento y Durabilidad) para blindar la información ante fallas físicas del sistema.</p>
+        
+        <div class="interactive" style="margin-top: 25px; padding: 20px; background: var(--card); border-radius: 8px;">
+            <h3 style="text-align: center;">Simulador de Validación de Clave Primaria (PK)</h3>
+            <p style="text-align: center;">El ID de un registro en una base relacional debe ser irrepetible:</p>
+            <div style="text-align: center;">
+                <input type="text" id="txtId" placeholder="Ingresa ID de usuario (Ej: 101)" style="padding: 8px; border-radius: 4px; border:1px solid #ccc;">
+                <button onclick="insertarRegistro()" style="background:#283618; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; margin-left: 10px;">Insertar Registro</button>
+            </div>
+            <p id="lblDb" style="text-align: center; margin-top: 15px; font-weight: bold; color: #bc6c25;"></p>
+        </div>
+    </div>
+    <script>
+        let idsExistentes = ["101", "102", "103"];
+        function insertarRegistro() {
+            let id = document.getElementById('txtId').value.trim();
+            if(idsExistentes.includes(id)) {
+                document.getElementById('lblDb').innerText = "ERROR DE INTEGRIDAD: La Llave Primaria (PK) '" + id + "' ya existe en la base de datos. Transacción abortada.";
+                document.getElementById('lblDb').style.color = "red";
+            } else if(id !== "") {
+                idsExistentes.push(id);
+                document.getElementById('lblDb').innerText = "¡ÉXITO! Registro insertado de forma segura bajo la clave PK única: " + id;
+                document.getElementById('lblDb').style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>
